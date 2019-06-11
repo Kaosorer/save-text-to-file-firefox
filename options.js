@@ -26,6 +26,7 @@ function saveOptions() {
     directorySelectionDialog: document.getElementById('directorySelectionDialog').checked,
     notifications: document.getElementById('notifications').checked,
     conflictAction: document.getElementById('conflictAction').value
+	fileTypeOption: document.getElementById('fileTypeOption').value
   }, function() {
     var status = document.getElementById('status');
     status.style.visibility = 'visible';
@@ -47,7 +48,8 @@ function restoreOptions() {
     urlInFile: false,
     directorySelectionDialog: false,
     notifications: true,
-    conflictAction: 'uniquify'
+    conflictAction: 'uniquify',
+	fileTypeOption: '1'
   }, function(items) {
     document.getElementById('fileNamePrefix').value = items.fileNamePrefix;
     document.getElementById('dateFormat').value = items.dateFormat;
@@ -58,6 +60,7 @@ function restoreOptions() {
     document.getElementById('directorySelectionDialog').checked = items.directorySelectionDialog;
     document.getElementById('notifications').checked = items.notifications;
     document.getElementById('conflictAction').value = items.conflictAction;
+	document.getElementById('fileTypeOption').value = item.fileTypeOption;
   });
 }
 document.addEventListener('DOMContentLoaded', restoreOptions);

@@ -69,11 +69,21 @@
         <option value="prompt">Prompt</option>
       </select>
     </div>
+	
+	<div class="option">
+      <label>Select file type:</label>
+      <select id="fileTypeOption">
+        <option value="0">.txt - Text File</option>
+        <option value="1">.rtf - Rich Text File</option>
+		<option value="2">.docx - Word Document</option>
+      </select>
+    </div>
 
     <div class="option">
       <button id="save" type="button">Save</button>
       <div id="status">Options saved.</div>
     </div>
+	
   </form>
 
   <script src="options.js"></script>

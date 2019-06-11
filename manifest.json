@@ -1,7 +1,7 @@
 {
-  "name": "Save text to file",
+  "name": "Save text to other file",
   "description": "Saves highlighted text to a file.",
-  "version": "3.3.0",
+  "version": "1.0.0",
   "applications": {
     "gecko": {
       "id": "HighlightedTextToFile@bobbyrne01.org",
