@@ -37,6 +37,7 @@ var urlInFile;
 var directorySelectionDialog;
 var notifications;
 var conflictAction;
+var fileTypeOption;
 
 function saveTextToFile(info) {
   chrome.tabs.executeScript({
@@ -79,6 +80,7 @@ function createFileContents(selectionText, callback) {
 }
 
 function createFileName(callback) {
+  var fileTypeOption == 0; 
   var fileName = '';
   var pageTitle = '';
   var date = _getDate();
@@ -151,7 +153,12 @@ function createFileName(callback) {
   }
 
   function _getExtension() {
-    return '.txt';
+	if (fileTypeOption == 0) {
+	return '.txt'; }
+	else if (fileTypeOption == 1){
+	return '.rtf';}
+	else if (fileTypeOption == 2){
+	return '.docx';}
   }
 }
 
@@ -336,5 +343,12 @@ browser.storage.onChanged.addListener(function(changes) {
         conflictAction = changes.conflictAction.newValue;
       }
     }
+  }
+  function _updateFileTypeSaveOnChange() {
+	  if (changes.fileTypeOption) {
+		  if (changes.fileTypeOption.newValue !== changes.fileTypeOption.oldValue) {
+			  conflictAction = changes.fileTypeOption.newValue;
+		  }
+	  }
   }
 });
